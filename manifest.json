@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+
+    "name": "Ассистент Фанфик в Файл",
+    "version": "0.2",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.fanfiction.net/*",
+                "*://*.ficbook.net/*",
+                "*://hogwartsnet.ru/*",
+                "*://snapetales.com/*",
+                "*://samlib.ru/*",
+                "*://archiveofourown.org/*"
+            ],
+            "js": [
+                "contentscript.js"
+            ],
+            "css": [
+                "contentscript.css"
+            ]
+        }
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+
+    "permissions": [
+        "storage",
+        "*://*.fanfics.me/"
+    ],
+    "icons": {
+        "128": "assets/icon.png"
+    }
+}

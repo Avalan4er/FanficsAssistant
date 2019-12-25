@@ -1,0 +1,34 @@
+{
+  "name": "FanfictionAssistantTS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:contentscript-background": "webpack --config webpack.config.js",
+    "build": "npm run build:contentscript-background",
+    "watch:contentscript-background": "webpack --config webpack.config.js -w",
+    "watch": "npm-run-all -parallel watch:*",
+    "clean": "del /q dist\\assets\\* && del /q dist\\* && rmdir dist\\assets && rmdir dist && cpy manifest.json dist && cpy src/assets/* dist/assets",
+    "prebuild": "npm run clean",
+    "prewatch": "npm run clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "0.0.91",
+    "@types/jquery": "^3.3.31",
+    "@types/node": "^13.1.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "cpy-cli": "^3.0.0",
+    "css-loader": "^3.4.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "ts-node": "^8.5.4",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
+}
