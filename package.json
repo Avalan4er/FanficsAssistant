@@ -33,6 +33,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "jquery": "^3.4.1",
     "rxjs": "^6.5.3"
   }
 }
