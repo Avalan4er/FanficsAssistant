@@ -1,5 +1,5 @@
-import jquery from "jquery";
-import { FanficMark as FanficMark } from "./models/mark";
+import "jquery";
+import { FanficMark as FanficMark, Marks } from "./models/mark";
 import { Paths } from "./paths";
 
 /**
@@ -12,12 +12,12 @@ export class ApiClient {
      * @param internalFanficId Идентификатор фанфика с сайта fanfics.me
      * @param mark Метка пользователя
      */
-    public async AddMark(internalFanficId: string, mark: number): Promise<boolean> {
+    public async AddMark(internalFanficId: number, mark: Marks): Promise<boolean> {
         const requestPath = Paths.AddFavoriteMarkUrl
-            .replace("{fanficId}", internalFanficId)
+            .replace("{fanficId}", internalFanficId.toString())
             .replace("{mark}", mark.toString());
 
-        const request = jquery.get({
+        const request = $.get({
             url: requestPath,
             xhrFields: {
                 withCredentials: true,
@@ -30,15 +30,15 @@ export class ApiClient {
 
     /**
      * Удаляет метку пользователя с фанфика
-     * @param fanficId Идентификатор фанфика с сайта fanfics.me
+     * @param internalFanficId Идентификатор фанфика с сайта fanfics.me
      * @param mark Метка пользователя
      */
-    public async RemoveMark(fanficId: string, mark: number) {
+    public async RemoveMark(internalFanficId: number, mark: Marks) {
         const requestPath  = Paths.RemoveFavoriteMarkUrl
-            .replace("{fanficId}", fanficId)
+            .replace("{fanficId}", internalFanficId.toString())
             .replace("{mark}", mark.toString());
 
-        const request = jquery.get({
+        const request = $.get({
             url: requestPath,
             xhrFields: {
                 withCredentials: true,
@@ -55,7 +55,7 @@ export class ApiClient {
     public async GetMarks(): Promise<FanficMark[]> {
         const requestPath = Paths.GetUserFavoritesUrl;
         try {
-            const request = jquery.get({
+            const request = $.get({
                 url: requestPath,
                 xhrFields: {
                     withCredentials: true,
@@ -96,7 +96,7 @@ export class ApiClient {
             .replace("{siteId}", siteId.toString())
             .replace("{siteFanficId}",  externalFanficId);
 
-        const request = jquery.get({
+        const request = $.get({
             url: requestPath,
             xhrFields: {
                 withCredentials: true,

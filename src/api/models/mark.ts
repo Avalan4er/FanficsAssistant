@@ -1,3 +1,22 @@
+export enum Marks {
+    /** Подписка */
+    Subscription = 1,
+    /** Прочитано */
+    Read = 3,
+    /** Не читать */
+    DoNotRead = 4,
+    /** Прочитать позже */
+    ReadLater = 5,
+    /** Жду окончания */
+    WaitTheEnd = 6,
+    /** Понравилось */
+    Like = 7,
+    /** Не понравилось */
+    Dislike = 8,
+    /** Скачано */
+    Donwload = 9,
+}
+
 export class FanficMark {
     /**
      * Информация о метках фанфика
@@ -10,7 +29,6 @@ export class FanficMark {
         public internalFanficId: number,
         public siteId: number,
         public externalFanficId: string,
-        public marks: number[]) {
-
+        public marks: Marks[]) {
     }
 }

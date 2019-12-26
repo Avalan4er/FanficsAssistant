@@ -1,2 +1,1 @@
-export const cacheRefreshPeriod: number = 1 * 60 * 1000;
-export const cacheStorageKey: string = "fanficsCache";
+export const CACHE_REFRESH_PERIOD: number = 1 * 60 * 1000;
