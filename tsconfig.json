@@ -4,7 +4,7 @@
       "target": "es5",
       "module": "commonjs",
       "sourceMap": false,
-      "types": ["chrome", "jquery", "node", "rxjs"],
+      "types": ["chrome", "jquery", "node", "rx"],
       "typeRoots": ["node_modules/@types"],
       "moduleResolution": "node",
       "lib": ["es2017", "dom"]
