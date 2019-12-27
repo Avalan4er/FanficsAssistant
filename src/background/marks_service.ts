@@ -1,8 +1,8 @@
 import { IDisposable, Observable } from "rx";
 import { ApiClient } from "../api/client";
+import { FanficMark, Marks } from "../api/models/mark";
 import { CACHE_REFRESH_PERIOD } from "./constants";
 import { MarksCache } from "./models/marks_cache";
-import { Marks, FanficMark } from "../api/models/mark";
 
 export class MarksService implements IDisposable {
 
@@ -10,7 +10,8 @@ export class MarksService implements IDisposable {
     private marksCache: MarksCache;
 
     constructor() {
-        this.cacheRefreshSubscription = Observable.timer(0, CACHE_REFRESH_PERIOD)
+        this.cacheRefreshSubscription = Observable
+            .timer(0, CACHE_REFRESH_PERIOD)
             .subscribe(() => this.Refresh());
     }
 
