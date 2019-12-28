@@ -55,7 +55,7 @@ export class Application {
         }
 
         await client.RemoveMark(internalFanficId, mark);
-        this.marksService.RemoveMark(internalFanficId);
+        this.marksService.RemoveMark(internalFanficId, mark);
 
         console.info(`Отметка ${mark} удалена с фанфика ${internalFanficId}`);
     }
