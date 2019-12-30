@@ -3,7 +3,7 @@ import { MarkActionMessage } from "./mark_action_message";
 
 export class MessageBroker implements IDisposable {
     public MarkActionSubject: Subject<MarkActionMessage> = new Subject<MarkActionMessage>();
-    private supportedMessages: { [messageType: string]: (message: any) => void };
+    private supportedMessages: { [messageType: string]: (message: any) => void } = {};
 
     constructor() {
         this.supportedMessages.MarkActionMessage = (message) =>

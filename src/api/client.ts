@@ -1,4 +1,4 @@
-import "jquery";
+import * as $ from "jquery";
 import { FanficMark as FanficMark, Marks } from "./models/mark";
 import { Paths } from "./paths";
 
